@@ -1,8 +1,13 @@
-// swift-tools-version:5.1
-// The swift-tools-version declares the minimum version of Swift required to build this package.
+// swift-tools-version:5.0
 
 import PackageDescription
 
 let package = Package(
-    name: "SwiftCron"
+    name: "SwiftCron",
+    products: [
+        .library(name: "SwiftCron", targets: ["SwiftCron"]),
+    ],
+    targets: [
+        .target(name: "SwiftCron", dependencies: [], path: "Sources"),
+    ]
 )
