@@ -23,11 +23,7 @@ struct StringValidator {
     }
 
     private static func validate(_ value: String, regex: String) -> Bool {
-        #if os(Linux)
-            typealias Regex = RegularExpression
-        #else
-            typealias Regex = NSRegularExpression
-        #endif
+        typealias Regex = NSRegularExpression
 
         guard let regex = try? Regex(pattern: regex, options: []) else { return false }
         return regex.numberOfMatches(in: value, options: [], range: NSMakeRange(0, value.count)) > 0
